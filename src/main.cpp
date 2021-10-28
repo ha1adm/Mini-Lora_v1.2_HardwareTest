@@ -1,21 +1,7 @@
 /*******************************************************************************
  *
- *  File:          LMIC-node.cpp
+ *  File:          main.cpp
  * 
- *  Function:      LMIC-node main application file.
- * 
- *  Copyright:     Copyright (c) 2021 Leonel Lopes Parente
- *                 Copyright (c) 2018 Terry Moore, MCCI
- *                 Copyright (c) 2015 Thomas Telkamp and Matthijs Kooijman
- *
- *                 Permission is hereby granted, free of charge, to anyone 
- *                 obtaining a copy of this document and accompanying files to do, 
- *                 whatever they want with them without any restriction, including,
- *                 but not limited to, copying, modification and redistribution.
- *                 The above copyright notice and this permission notice shall be 
- *                 included in all copies or substantial portions of the Software.
- * 
- *                 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT ANY WARRANTY.
  * 
  *  License:       MIT License. See accompanying LICENSE file.
  * 
