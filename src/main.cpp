@@ -9,7 +9,8 @@
  * 
  *  Description:   To test the hardware futures of Mini-Lora Node v1.2
  *                 (Based on hallard's board https://github.com/hallard/Mini-LoRa)
- *                 On D3 pin a DS18B20 is mounted for Quick and Dirty temp measurement. 
+ *                 On D3 pin a DS18B20 is mounted for Quick and Dirty temp measurement.
+ *                 On A3 a voltage divider is mounted to measure the Arduino RAW input Voltage (Battery voltage) 
  *  Dependencies:  External libraries:
  *                  Wire
  *                  robtillaart/DS18B20
@@ -44,6 +45,13 @@ void readEEPROM_MAC(int deviceaddress, byte eeaddress)
   }
   Serial.println();
 }
+// Reads Analog input and calculates result as Volts according to Voltage divider Resistors
+// R1 is the high side of the divider
+float getBattV(float r1, float r2, const byte analogPin, float vcc) {
+  float batt_v = 0.0;
+  batt_v = ((analogRead(analogPin) * vcc) / 1024.0) / (r2/(r1+r2));  
+return batt_v;
+}
 
 void setup(void)
 {
@@ -60,8 +68,9 @@ void setup(void)
   while (!sensor.isConversionComplete());  // wait until sensor is ready
   Serial.print("Temp: ");
   Serial.println(sensor.getTempC());
+  Serial.print("Batt: ");
+  Serial.println(getBattV(100000.0, 180000.0, A3, 3.3));
 }
-
 void loop(void)
 {
 
